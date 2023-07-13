@@ -1,0 +1,17 @@
+:host {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container1 {
+    background: linear-gradient(to bottom, rgb(18 48 61), #010636f8);
+    border-radius: 50% 20% / 10% 40%;
+    max-width: 25%;
+    max-height: 80%;
+    margin-left: 38%;
+}
+
+* {
+    background-color: #fdfdfda8 !important;
+    width: 97vw;
+    height: 97vh;
+}

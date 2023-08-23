@@ -1,0 +1,10 @@
+<!-- tu-componente.component.html -->
+<!-- tu-componente.component.html -->
+
+<div class="container">
+  <h1>Cargar Imagen</h1>
+  <form (submit)="subirImagen()" enctype="multipart/form-data">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button type="submit">Subir Imagen</button>
+  </form>
+</div>

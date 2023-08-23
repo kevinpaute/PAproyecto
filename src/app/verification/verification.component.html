@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Personas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <h1>Verificacion de pago</h1>
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Cédula</th>
+                    <th>Imagen</th>
+                    <th>Aceptar</th>
+                    <th>Denegar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of personas">
+                  <td>{{ persona.nombres }}</td>
+                  <td>{{ persona.apellidos }}</td>
+                  <td>{{ persona.imagen }}</td>
+                  <td>
+                    <img [src]="persona.imagen" alt="Imagen de {{ persona.imagen}}">
+                  </td>
+                  <td>
+                    <button id="btn-aceptar" class="btn btn-success" (click)="mostrarAlerta()">Aceptar</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="errorAlerta()">Denegar</button>
+                </td>
+               
+                </tr>
+              </tbody>
+            <!-- <tbody>
+                <tr>
+                    <td>Kevin Paute</td>
+                    <td>0804228724</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="imagen()">Ver Pago</button>
+                    </td>
+
+                </tr>
+            </tbody> -->
+        </table>
+
+    </div>
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+

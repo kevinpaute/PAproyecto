@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Personas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <h1>Usuarios Registrados</h1>
+    <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Cédula</th>
+                    <th>email</th>
+                    <th>Genero</th>
+                    <th>Estado</th>
+                    <th>Aceptar</th>
+                    <th>Denegar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usuario">
+                    <td>{{ user.nombres }}</td>
+                    <td>{{ user.apellidos }}</td>
+                    <td>{{ user.cedula }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.genero }}</td>
+                    <td>{{ user.estado }}</td>
+                    <td>
+                        <a [routerLink]="['/prueba-ruta/insertar/form', user._id]" class="btn btn-primary">Ver detalles y aceptar</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" >Denegar</button>
+                    </td>
+                  </tr>
+            </tbody>
+        </table>
+
+    </div>
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

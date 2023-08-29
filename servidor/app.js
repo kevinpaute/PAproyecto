@@ -1,15 +1,40 @@
+const nodemailer = require('nodemailer');
 
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const configMensaje = require("./configMensaje");
-const app = express();
-app.use(bodyParser.json());
-app.use(cors())
-app.post("/formulario", (req, res) => {
- configMensaje(req.body);
- res.status(200).send();
-})
-app.listen(3000, () => {
- console.log("Servidor corriendo")
-});
+function enviarCorreo(destinatario) {
+  const config = {
+    host: 'smtp.gmail.com',
+    port: 587,
+    auth: {
+      user: 'jhonmacias1999@gmail.com',
+      pass: 'bygkfyupcbffuyni'
+    }
+  };
+  
+  const mensaje = {
+    from: 'jhonmacias1999@gmail.com',
+    to: destinatario,
+    subject: 'Correo de pruebas',
+    html: `<!DOCTYPE html>
+      <html lang="es">
+        <head>
+          <link rel="stylesheet" href="style.css">
+          <meta charset="UTF-8">
+          <title>Correo de pruebas</title>
+        </head>
+        <body>
+          <header>
+            <h1>Este es un correo electrónico de pruebas</h1>
+          </header>
+          <main>
+            <p style="color: tomato;">¡Hola!</p>
+            <p>Este es un correo electrónico de pruebas enviado desde Nodemailer.</p>
+            <p>¡Gracias por leerlo!</p>
+          </main>
+        </body>
+      </html>`
+  };
+
+  const transport = nodemailer.createTransport(config);
+  return transport.sendMail(mensaje);
+}
+enviarCorreo();

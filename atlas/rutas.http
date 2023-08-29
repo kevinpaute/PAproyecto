@@ -1,0 +1,15 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombres":"jhon",
+    "apellidos":"kleber",
+    "cedula":"2350051930",
+    "email":"lmolalla1@espe.edu.ec",
+    "teléfono":"0939765584",
+    "dirección":"coop carlos ruiz burneo",
+    "genero":"Masculino",
+    "vehiculoarentar":"Busetas",
+    "costos":"25$"
+}

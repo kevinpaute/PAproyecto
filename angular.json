@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ProyectoFormulario": {
+    "appMensaje": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proyecto-formulario",
+            "outputPath": "dist/app-mensaje",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ProyectoFormulario:build:production"
+              "browserTarget": "appMensaje:build:production"
             },
             "development": {
-              "browserTarget": "ProyectoFormulario:build:development"
+              "browserTarget": "appMensaje:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ProyectoFormulario:build"
+            "browserTarget": "appMensaje:build"
           }
         },
         "test": {

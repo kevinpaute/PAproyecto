@@ -45,5 +45,9 @@ export class VerificationComponent implements OnInit {
       );
   }
 
+  getImagePath(user: any): string {
+    return 'http://localhost:4000/' + user.photos[0]?.imagePath || 'assets/default-image.jpg';
+  }
+
 
 }

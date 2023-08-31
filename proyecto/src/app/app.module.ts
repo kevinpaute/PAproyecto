@@ -27,6 +27,7 @@ import { VerificationComponent } from './verification/verification.component';
 import { RecaptchaModule} from "ng-recaptcha";
 import { InsertarComponent } from './insertar/insertar.component';
 import { AceptadosComponent } from './aceptados/aceptados.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { AceptadosComponent } from './aceptados/aceptados.component';
     VerificationComponent,
     InsertarComponent,
     AceptadosComponent,
+    
  
     
   ],
@@ -58,7 +60,8 @@ import { AceptadosComponent } from './aceptados/aceptados.component';
     RecaptchaModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
 
   ],
   providers: [],

@@ -9,7 +9,7 @@
             <div class="user-input">
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input matInput type="text"  formControlName="user" required>
+                    <input matInput type="text" [(ngModel)]="username"  formControlName="user" required>
                     <mat-error *ngIf="loginForm.get('user')?.errors &&  loginForm.get('user')?.touched">
                         <span *ngIf="loginForm.get('user')?.hasError('required')">
                         El campo es requerido
@@ -21,7 +21,7 @@
             <div>
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Contraseña</mat-label>
-                    <input matInput  type="password" formControlName="password" required>
+                    <input matInput  type="password" [(ngModel)]="password" formControlName="password" required>
                     <mat-error *ngIf="loginForm.get('password')?.errors &&  loginForm.get('password')?.touched" >
                         <span *ngIf="loginForm.get('password')?.hasError('required')">
                         El campos es requerido

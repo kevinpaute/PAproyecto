@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  url = "http://localhost:4000/api/"; //llamar
+  url = "http://localhost:3000/api/"; //llamar
 
   constructor(public http:HttpClient) { }
+
+  login(username: string, password: string): Observable<any> {
+    const body = { username, password };
+    return this.http.post(this.url+'login', body);
+  }
 
       /**Obtner todos */
       getUsers(){

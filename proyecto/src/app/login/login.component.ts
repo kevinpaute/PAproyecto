@@ -1,24 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router'; 
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent{
+  username: string = '';
+  password: string = '';
 
-  usuario = "knpaute"
-  contrasena = "123456"
+  constructor(private authService: UsuarioService, private router: Router, private fb: FormBuilder) {
 
-  hide: boolean = false;
-
-  
-  constructor( private fb: FormBuilder, private router: Router) { }
-
-  ngOnInit() {
-    
   }
 
   loginForm : FormGroup= this.fb.group({
@@ -27,28 +24,13 @@ export class LoginComponent implements OnInit{
   });
 
   onLogin() {
-    if (!this.loginForm.valid) {
-      return;
-    }
-    console.log(this.loginForm.value);
-
-    const userControl = this.loginForm.get('user');
-    const passwordControl = this.loginForm.get('password');
-  
-    if (userControl && passwordControl) {
-      const user = userControl.value;
-      const password = passwordControl.value;
-  
-      // Verificar las credenciales ingresadas con los valores definidos
-      if (user === this.usuario && password === this.contrasena) {
-        // Credenciales válidas, redireccionar a la página principal (prueba-ruta)
+    this.authService.login(this.username, this.password).subscribe((result) => {
+      if (result.success) {
+        // Redireccionar a la página deseada
         this.router.navigate(['/prueba-ruta']);
       } else {
-        // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción adicional
-        alert('Credenciales inválidas');
+        console.log(result.message);
       }
+    });
   }
-
-
-}
 }

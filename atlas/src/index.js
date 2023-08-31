@@ -7,22 +7,24 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 //require("dotenv").config();
 const userRoutes = require("./routes/user");
 const imagenRoutes = require('./routes/imageRoutes'); 
-const imagenes = require('./imagenes'); 
+const auth = require('./routes/authRoutes');
+//const imagenes = require('./imagenes'); 
 const cors = require('cors');
 
 const app = express();
-const port =  9000;
-
+const port =  3000;
 // Middleware
 app.use(cors()); // Habilitar CORS para todas las rutas
 app.use(bodyParser.json())
+app.use('/api', auth);
 app.use('/api', userRoutes);
 app.use('/api', imagenRoutes);
-app.use('/api', imagenes);
+//app.use('/api', imagenes);
+
 
 // Router
 app.get('/', (req, res) => {
-    res.send("Bienvenido a la JAPI");
+    res.send("Bienvenido a la API");
 });
 
 // MongoDB conexión

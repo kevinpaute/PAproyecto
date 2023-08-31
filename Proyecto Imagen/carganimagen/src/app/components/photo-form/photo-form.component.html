@@ -1,0 +1,25 @@
+<p>photo-form works!</p>
+<div class="col-lg-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Sube una foto
+
+        </div>
+        <div class="card-body">
+            <form (submit)="uploadPhoto(title.value,descripcion.value)">
+                <div class="form-group">
+                    <input type="hidden" name="" id="" class="form-control" required #title placeholder="Hola Usuario" disabled="true">
+                </div>
+                <div class="form-group">
+                    <textarea rows="2" placeholder="Foto descripcion" class="form-control" required #descripcion hidden></textarea>
+                </div>
+                <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                <img [src]="photoSelected || 'assets/camera.jpg'" class="img-fluid" alt="No Image" (click)="photoInput.click()">
+
+
+                <button class="btn btn-primary btn-lock">Cargar</button>
+            </form>
+
+        </div>
+    </div>
+</div>

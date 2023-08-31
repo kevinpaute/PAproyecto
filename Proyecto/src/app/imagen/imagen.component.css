@@ -38,3 +38,14 @@ button:hover {
   background-color: rgb(18 48 61);
   color: white;
 }
+
+/*BOTON DESABILITADO*/
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.flex-container {
+  gap: 25px;
+  display: flex;
+}

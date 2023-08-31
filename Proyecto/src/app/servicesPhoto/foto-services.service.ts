@@ -20,4 +20,16 @@ export class FotoServicesService {
 
   }
 
+  
+  createFotoWithUser(title: string, description: string, usuario: string, photo: File) {
+    const fd = new FormData();
+    fd.append('title', title);
+    fd.append('description', description);
+    fd.append('usuario', usuario); // Agregar el ID del usuario al FormData
+    fd.append('image', photo);
+    return this.http.post(this.URL + `/${usuario}`, fd); // Agregar el ID del usuario en la URL
+  }
+  
+
+
 }

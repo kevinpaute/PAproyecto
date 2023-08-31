@@ -163,6 +163,78 @@ export async function createUser(req: Request, res: Response): Promise<Response>
         } catch (error) {
             return res.status(500).json({ message: 'Error updating user', error });
         }
+		
+		export async function enviarPago(req: Request, res: Response): Promise<Response> {
+    const { email } = req.body;
+
+    try {
+        const mensaje = {
+            from: 'jhonmacias1999@gmail.com',
+            to: email,
+            subject: 'Pago exitoso',
+            html: `<!DOCTYPE html>
+                <html lang="es">
+                    <head>
+                        <link rel="stylesheet" href="style.css">
+                        <meta charset="UTF-8">
+                        <title>Confirmación de Pago</title>
+                    </head>
+                    <body>
+                        <header>
+                            <h1>Pago Exitoso</h1>
+                        </header>
+                        <main>
+                            <p style="color: green;">¡Hola!</p>
+                            <p>Te informamos que tu pago ha sido procesado con éxito.</p>
+                            <p>Gracias por confiar en nosotros.</p>
+                        </main>
+                    </body>
+                </html>`
+        };
+
+        await enviarCorreo(mensaje);
+
+        return res.json({ status: 'Correo de pago enviado con éxito' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Error sending payment email', error });
+    }
+}
+
+export async function RechazarPago(req: Request, res: Response): Promise<Response> {
+    const { email } = req.body;
+
+    try {
+        const mensaje = {
+            from: 'jhonmacias1999@gmail.com',
+            to: email,
+            subject: 'Oh! Algo ha pasado con su pago',
+            html: `<!DOCTYPE html>
+                <html lang="es">
+                    <head>
+                        <link rel="stylesheet" href="style.css">
+                        <meta charset="UTF-8">
+                        <title>Confirmación de Pago</title>
+                    </head>
+                    <body>
+                        <header>
+                            <h1>Pago Exitoso</h1>
+                        </header>
+                        <main>
+                            <p style="color: green;">¡Hola!</p>
+                            <p>Te informamos que tu pago ha sido procesado con éxito.</p>
+                            <p>Gracias por confiar en nosotros.</p>
+                        </main>
+                    </body>
+                </html>`
+        };
+
+        await enviarCorreo(mensaje);
+
+        return res.json({ status: 'Correo de pago cancelado' });
+    } catch (error) {
+        return res.status(500).json({ message: 'Error sending payment email', error });
+    }
+}
     }
     
 

@@ -20,6 +20,8 @@
     "nodemailer": "^6.9.4"
   },
   "devDependencies": {
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
     "nodemon": "^3.0.1"
   }
 }

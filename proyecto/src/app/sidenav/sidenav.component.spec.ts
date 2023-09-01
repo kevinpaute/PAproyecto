@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { SidenavComponent } from './sidenav.component';
 
 describe('SidenavComponent', () => {
@@ -8,7 +8,8 @@ describe('SidenavComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SidenavComponent]
+      declarations: [SidenavComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     });
     fixture = TestBed.createComponent(SidenavComponent);
     component = fixture.componentInstance;

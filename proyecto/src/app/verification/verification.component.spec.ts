@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { VerificationComponent } from './verification.component';
 
@@ -7,7 +8,7 @@ describe('VerificationComponent', () => {
   let fixture: ComponentFixture<VerificationComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    TestBed.configureTestingModule({ imports: [HttpClientModule], 
       declarations: [VerificationComponent]
     });
     fixture = TestBed.createComponent(VerificationComponent);

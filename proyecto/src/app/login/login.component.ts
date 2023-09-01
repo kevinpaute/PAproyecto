@@ -44,7 +44,9 @@ export class LoginComponent{
           this.toastr.error('El usuario no existe', 'Error de autenticación');
         } else if (error.error.message === 'Usuario y/o contraseña incorrectos') {
           this.toastr.error('Usuario y/o contraseña incorrectos','Error de autenticación');
-        }
+        }else (
+          this.toastr.error('Error en el servidor','Error de servidor')
+        )
       }
     );
   }

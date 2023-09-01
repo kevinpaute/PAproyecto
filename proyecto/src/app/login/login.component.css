@@ -44,3 +44,5 @@ mat-card{
     background: rgb(18 48 61);
     min-height: 100%;
 }
+
+@import "/node_modules/ngx-toastr/toastr.css";

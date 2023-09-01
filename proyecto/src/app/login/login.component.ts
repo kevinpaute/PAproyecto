@@ -14,7 +14,8 @@ export class LoginComponent{
   username: string = '';
   password: string = '';
 
-  constructor(private authService: UsuarioService, private router: Router, private fb: FormBuilder) {
+  constructor(private authService: UsuarioService, private router: Router, private fb: FormBuilder,
+    private toastr: ToastrService) {
 
   }
 
@@ -24,13 +25,25 @@ export class LoginComponent{
   });
 
   onLogin() {
-    this.authService.login(this.username, this.password).subscribe((result) => {
-      if (result.success) {
-        // Redireccionar a la página deseada
-        this.router.navigate(['/prueba-ruta']);
-      } else {
-        console.log(result.message);
+    this.authService.login(this.username, this.password).subscribe(
+      (result) => {
+        // El servidor ha respondido, aquí puedes verificar la respuesta
+        if (result.success) {
+          // Redireccionar a la página deseada
+          this.router.navigate(['/prueba-ruta']);
+          
+          // Mostrar alerta de éxito
+          this.toastr.success('¡Inicio de sesión exitoso!', 'Bienvenido');
+        }
+      },
+      (error) => {
+        // Error de comunicación con el servidor
+        console.error(error);
+        // Error de autenticación (usuario o contraseña incorrectos)
+        if (error.error.message === 'El usuario no existe') {
+          this.toastr.error('El usuario no existe', 'Error de autenticación');
+        } 
       }
-    });
+    );
   }
 }

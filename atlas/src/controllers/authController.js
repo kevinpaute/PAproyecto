@@ -8,7 +8,8 @@ exports.login = async (req, res) => {
     const user = await Usuario.findOne({ username });
 
     if (!user) {
-      return res.status(500).json({ success: false, message: 'El usuario no existe' });
+        console.log(`User ${username} not found`);
+        return res.status(500).json({ success: false, message: 'El usuario no existe' });
     }
 
     const isPasswordValid = await user.isCorrectPassword(password);
@@ -18,7 +19,7 @@ exports.login = async (req, res) => {
     } else {
       return res.status(500).json({ success: false, message: 'Usuario y/o contraseña incorrectos' });
     }
-  } catch (error) {
+    } catch (error) {
     console.error(error);
     return res.status(500).json({ success: false, message: 'Error en el servidor' });
   }

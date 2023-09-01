@@ -1,26 +1,23 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Tabla de Personas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+  
 </head>
 <body>
-    <h1>Usuarios Registrados</h1>
+    <h1>Usuarios Aceptados</h1>
     <div class="container">
         
-        <table class="table">
+        <table>
             <thead>
                 <tr>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Cédula</th>
-                    <th>email</th>
+                    <th>Email</th>
                     <th>Genero</th>
                     <th>Estado</th>
-                
-                    
                 </tr>
             </thead>
             <tbody>
@@ -31,15 +28,11 @@
                     <td>{{ user.email }}</td>
                     <td>{{ user.genero }}</td>
                     <td>{{ user.estado }}</td>
-        
-                  </tr>
+                </tr>
             </tbody>
         </table>
 
     </div>
-   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>

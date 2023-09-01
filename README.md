@@ -74,6 +74,23 @@
     
     </div>
         
-
+    describe('AppComponent', () => {
+      let fixture: ComponentFixture<ImagenComponent>;
+    
+      beforeEach(async () => {
+        await TestBed.configureTestingModule({
+          imports: [HttpClientModule],
+          declarations: [AppComponent],
+        }).compileComponents();
+      });
+    
+      beforeEach(async () => {
+        await TestBed.configureTestingModule({
+          imports: [HttpClientModule],
+          declarations: [AppComponent],
+          providers: [UsuarioService],
+        }).compileComponents();
+      });
+    }
 
   

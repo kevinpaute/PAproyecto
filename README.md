@@ -93,4 +93,16 @@
       });
     }
 
+    beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ImagenComponent],
+    }).compileComponents();
+      });
+    
+      beforeEach(() => {
+        fixture = TestBed.createComponent(ImagenComponent);
+        fixture.detectChanges();
+      });
+
+
   

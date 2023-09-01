@@ -105,4 +105,10 @@
       });
 
 
+      it('debe tener un campo de entrada que acepte solo imágenes en formato PNG', () => {
+        const inputDebugEl = fixture.debugElement.query(By.css('input[type=file]'));
+        expect(inputDebugEl.nativeElement.accept).toBe('image/png');
+      });
+    });
+
   

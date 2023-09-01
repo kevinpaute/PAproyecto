@@ -2,12 +2,13 @@ import { Router } from 'express'
 const router = Router();
 
 import upload from '../libs/multer'
-import { getPhotos, createPhoto, deletePhoto, getPhoto, updatePhoto,crearFotoConParametro, getUsersWithPhotos } from '../controllers/photo.controller'
+import { getPhotos, createPhoto, deletePhoto, getPhoto, updatePhoto,crearFotoConParametro,
+     getUsersWithPhotos,actualizarFotoConParametro,RechazarPagoV2,getUsersWithPhotosFinalizados } from '../controllers/photo.controller'
 import {createUser,getAllUsers,
     getUserById,
     getUsersWithActiveStatus,
     getUsersWithInactiveStatus,
-    getUsersWithPendingStatus,updateUser} from '../controllers/user.controller'; 
+    getUsersWithPendingStatus,updateUser,enviarPago,eliminarUsuarioYEnviarCorreo, actualizarEstadoUsuario} from '../controllers/user.controller'; 
 
 
 // middleware
@@ -26,7 +27,8 @@ router.route('/photos/:id')
 // routes/index.ts
 // ...
 router.route('/photos/:id')
-    .post(upload.single('image'), crearFotoConParametro);
+    .post(upload.single('image'), crearFotoConParametro)
+    .put(upload.single('image'),crearFotoConParametro);
 
 
     //crear un usuario:
@@ -50,5 +52,21 @@ router.route('/users/estado/esperando')
 
     router.route('/users-with-photos')
     .get(getUsersWithPhotos); // Llama a la función que obtiene usuarios con fotos
+    
+    router.route('/enviar-correo')
+    .post(enviarPago);
+
+
+    router.route('/fotos/:id/photos/:photoId')
+    .put(upload.single('image'), actualizarFotoConParametro);
+
+    router.route('/pago-invalido')
+    .post(RechazarPagoV2)
+    router.route('/users/:id/eliminar-y-enviar-correo')
+    .post(eliminarUsuarioYEnviarCorreo);
+
+    router.put('/users/:id/actualizar-estado', actualizarEstadoUsuario);
+    router.route('/finalizado')
+    .get(getUsersWithPhotosFinalizados)
 
 export default router;

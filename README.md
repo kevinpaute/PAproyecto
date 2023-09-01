@@ -129,3 +129,38 @@
       flex-direction: column;
       align-items: center;
     }
+
+    
+    input[type="file"] {
+      margin-bottom: 10px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    * {
+      background-color: rgb(18 48 61);
+      color: white;
+    }
+    
+    /*BOTON DESABILITADO*/
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
+    .flex-container {
+      gap: 25px;
+      display: flex;
+    }
+

@@ -17,4 +17,41 @@
     margin-left: 5px;
     color: #888;
   }
+
+
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #f1f1f1; /* Set the background color of the card */
+    }
+
+    .form-floating {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Set the background color and border color of the inputs */
+    input.form-control {
+      background-color: #E7F9F9;
+      border-color: #c9c9c9;
+    }
+
+    /* Set the color of the labels */
+    label {
+      color: #333333;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
   

@@ -1,6 +1,7 @@
 // controllers/authController.js
 const Usuario = require('../models/usuarioModel');
 
+//exports
 exports.login = async (req, res) => {
   const { username, password } = req.body;
 

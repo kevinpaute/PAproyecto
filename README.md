@@ -164,3 +164,9 @@
       display: flex;
     }
 
+    import { ComponentFixture, TestBed } from '@angular/core/testing';
+    import { By } from '@angular/platform-browser';
+    import { ImagenComponent } from './imagen.component';
+    import { HttpClientModule } from '@angular/common/http';
+    import { AppComponent } from '../app.component';
+    import { UsuarioService } from '../usuario.service';

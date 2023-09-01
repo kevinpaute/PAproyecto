@@ -56,7 +56,24 @@
         // Redirige a la URL deseada para recargar la página
         window.location.href = 'http://localhost:4200/imagen';
       }
+
+      
+
+      <h1>Cargar Imagen</h1>
     
+      <form (submit)="subirImagen()" enctype="multipart/form-data">
+        
+        <input class="custom-file-input" type="file" (change)="onFileSelected($event)" accept="image/png">
+    
+        <div class="col-lg-4 col-md-4 flex-container">
+          <button type="submit" [disabled]="imagenSeleccionada === null" (click)="mostrarAlerta()">Subir Imagen</button>
+          <button type="submit" (click)="recargar()">Cancelar</button>
+        </div>
+    
+      </form>
+    
+    </div>
+        
 
 
   

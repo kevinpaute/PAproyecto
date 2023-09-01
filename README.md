@@ -35,8 +35,28 @@
     } else {
       console.log('Por favor, selecciona una imagen.');
     }
-  }
+      }
 
+    //Alertas
+      mostrarAlerta() {
+        Swal.fire({
+          title: 'Imagen cargada correctamente',
+          text: 'Aceptado',
+          icon: 'success',
+        }).then((result) => {
+          // Este bloque de código se ejecutará después de que el usuario interactúe con la alerta
+          if (result.isConfirmed) {
+            // Redirige a la URL deseada
+            window.location.href = 'http://localhost:4200/imagen';
+          }
+        });
+      }
+    
+      recargar() {
+        // Redirige a la URL deseada para recargar la página
+        window.location.href = 'http://localhost:4200/imagen';
+      }
+    
 
 
   
